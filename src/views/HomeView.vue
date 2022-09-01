@@ -1,7 +1,14 @@
 <template>
   <div class="home">
-  {{ usersData}}
-  <Footer></Footer>
+
+    <div class="container">
+      <div v-for="user in usersData" v-bind:key="user.id" class="card">
+        <img :src="user.avatar" alt="">
+        <h5>{{ user.first_name }}</h5>
+      </div>
+    </div>
+
+    <Footer></Footer>
   </div>
 </template>
 
@@ -17,18 +24,19 @@ export default {
   data() {
     return {
       alldata: null,
-      usersData: null,
+      usersData: []
     }
   },
   components: {
     Footer
-},
-  async created() {
+  },
+  async mounted() {
     console.log("mounted");
     try {
       const res = await axios.get(url)
       this.alldata = res.data
       this.usersData = this.alldata.data
+
       console.log(res)
     } catch (error) {
       console.log(error);
