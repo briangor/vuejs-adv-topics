@@ -11,6 +11,26 @@
     background-color: $bg;
 }
 
+.card {
+    border:1px solid $gray;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $blue;
+        box-shadow: 2px 2px 2px 2px;
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
 .about {
     padding: 2rem 2rem;
 }
@@ -18,4 +38,12 @@
 .footer {
     padding: 4rem 2rem 2rem 2rem;
     color: $gray;
+}
+
+
+.error-page {
+    h2 {
+        color: $blue;
+        font-size: 3rem;
+    }
 }
