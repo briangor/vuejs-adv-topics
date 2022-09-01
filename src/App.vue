@@ -1,17 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+    {{ usersData }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+
+const url = 'https://reqres.in/api/users?page=1'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      alldata: null,
+      usersData: null,
+    }
+  },
   components: {
-    HelloWorld
+
+  },
+  methods: {
+  
+  },
+  async created() {
+    console.log("mounted");
+    try {
+      const res = await axios.get(url)
+      this.alldata = res.data
+      this.usersData = this.alldata.data
+      console.log(res)
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 </script>
