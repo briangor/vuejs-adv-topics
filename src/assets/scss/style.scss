@@ -1,0 +1,21 @@
+@import './colors';
+
+@mixin btn($btn-color: $btn-font, $btn-bg-color: $btn-bg) {
+    outline: none;
+    border: 1px solid $btn-bg-color;
+    border-radius: 5px;
+    color: $btn-color;
+}
+
+* {
+    background-color: $bg;
+}
+
+.about {
+    padding: 2rem 2rem;
+}
+
+.footer {
+    padding: 4rem 2rem 2rem 2rem;
+    color: $gray;
+}
